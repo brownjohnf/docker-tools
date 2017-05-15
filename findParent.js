@@ -13,7 +13,7 @@ const getParent = (imageId) => {
   return execAsync(`docker inspect ${imageId}`)
   .then(json => {
     const image = JSON.parse(json)[0]
-    console.log(image)
+    console.log(`Id: ${image.Id} => Parent: ${image.Parent}`)
 
     if (image.Parent === '') {
       return image
@@ -28,6 +28,6 @@ const getParent = (imageId) => {
 
 getParent(startingImage)
 .then(image => {
-  console.log(image.RepoTags)
+  console.log(image.Id, image.RepoTags)
 })
 
