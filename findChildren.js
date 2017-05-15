@@ -9,9 +9,6 @@ const
   targetParent = process.argv[2],
   regex = new RegExp(targetParent, 'i')
 
-console.log(targetParent)
-
-
 const findParent = (targetParent, imageId) => {
   if (imageId === '') return false
 
@@ -20,7 +17,6 @@ const findParent = (targetParent, imageId) => {
     const image = JSON.parse(json)[0]
 
     if (regex.test(image.Parent)) {
-      console.log('found child')
       return true
     }
 

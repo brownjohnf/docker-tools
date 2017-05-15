@@ -7,8 +7,6 @@ const
 const
   startingImage = process.argv[2]
 
-console.log(startingImage)
-
 const getParent = (imageId) => {
   return execAsync(`docker inspect ${imageId}`)
   .then(json => {
